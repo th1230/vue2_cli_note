@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>localStorage</title>
+  </head>
+  <body>
+    <h2>localStorage</h2>
+    <button onclick="saveData()">點我保存一個數據</button>
+    <button onclick="readData()">點我讀取一個數據</button>
+    <button onclick="deleteData()">點我刪除一個數據</button>
+    <button onclick="deleteAllData()">點我刪除全部數據</button>
+
+    <script type="text/javascript">
+      let p = { name: "張三", age: 18 };
+
+      function saveData() {
+        localStorage.setItem("msg", "hello!!!");
+        localStorage.setItem("msg2", 666);
+        //  通過JSON.stringify轉換成json格是字串
+        localStorage.setItem("person", JSON.stringify(p));
+      }
+      function readData() {
+        console.log(localStorage.getItem("msg"));
+        console.log(localStorage.getItem("msg2"));
+
+        const result = localStorage.getItem("person");
+        console.log(JSON.parse(result));
+
+        // console.log(localStorage.getItem('msg3'))
+      }
+      function deleteData() {
+        localStorage.removeItem("msg2");
+      }
+      function deleteAllData() {
+        localStorage.clear();
+      }
+    </script>
+  </body>
+</html>
